@@ -106,8 +106,8 @@ var VueTranslate = {
                 return this.$translate.text(t);
             }
         }, _Vue$mixin.directives = {
-            translate: function (el) {
-                if (!el.$translateKey) el.$translateKey = el.innerText;
+            translate: function (el, binding, vnode) {
+                if (!el.$translateKey) el.$translateKey = binding.arg ? binding.arg + '.' + el.innerText : el.innerText;
 
                 var text = this.$translate.text(el.$translateKey);
 
@@ -118,6 +118,11 @@ var VueTranslate = {
         // Global method for loading locales
         Vue.locales = function (locales) {
             vm.$translate.setLocales(locales);
+        };
+
+        // Global method for setting languages
+        Vue.lang = function (lang) {
+            vm.$translate.setLang(lang);
         };
     }
 };

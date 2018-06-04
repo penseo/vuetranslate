@@ -94,9 +94,9 @@ const VueTranslate = {
             },
 
             directives: {
-                translate: function (el) {
+                translate: function (el, binding, vnode) {
                     if (!el.$translateKey)
-                        el.$translateKey = el.innerText;
+                        el.$translateKey = binding.arg ? binding.arg + '.'  + el.innerText : el.innerText;
 
                     let text = this.$translate.text(el.$translateKey);
 

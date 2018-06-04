@@ -37,6 +37,7 @@ Vue.component('sample-content', {
         es_DO: {
             'Hello there!': 'Hola!',
             'While this, is.': 'Mientras que este, si.',
+            'prefix.While this, is.': '///Mientras que este, si.///',
             'Reactivity': 'Reactividad',
             'And it\'s completely reactive, let\'s try with dynamic content!': 'Y es completamente reactivo, probemos con contenido dinámico!',
             'Or even computed properties.': 'O incluso con propiedades computadas.',
@@ -65,6 +66,7 @@ Vue.component('sample-content', {
                 <h1 v-translate>Hello there!</h1>
                 <p class="no-translation">This text is not being translated.</p>
                 <p v-translate>While this, is.</p>
+                <p v-translate:prefix>While this, is.</p>
 
                 <h2 v-translate>Reactivity</h2>
 
